@@ -1,0 +1,104 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  background:linear-gradient(135deg,rgba(230, 230, 230, 1) 0%,rgba(240, 240, 240, 1) 100%);
+}
+.login-form {
+  background-color: #fff;
+  width: 350px;
+  height: 500px;
+  border-radius: 15px;
+	box-shadow: -8px -8px 16px -10px rgba(218, 223, 225, 1),
+	8px 8px 16px -10px rgba(46, 49, 49, 1);
+	
+  /* 瀹氫綅鍒颁腑蹇� */
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text {
+  /* 鏍囬Login鐨勬牱寮� */
+  font-size: 30px;
+  font-weight: bold;
+
+  text-align: center;
+  line-height: 80px;
+  margin-top: 40px;
+}
+.form-item, .btn, .other {
+  margin: 40px auto;
+  width: 90%;
+}
+
+.form-item input{
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px;
+
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid #fbc2eb;
+}
+input::placeholder{
+  font-weight: bold;
+  color: #acb7c9;
+}
+input:focus {
+  /* 褰撹緭鍏ユ鑾峰彇鐒︾偣鏃剁殑鏁堟灉 */
+  /* box-shadow: 0px 0px 5px #fbc2eb;
+  border-bottom: 1px solid #fff; */
+  animation: bBottom 2s infinite ;
+}
+@keyframes bBottom {
+  50% {
+    border-bottom: 1px solid #a6c1ee;
+  }
+}
+.btn {
+    border: 0;
+  outline: none;
+  margin-top: 5px;
+  height: 40px;
+  line-height: 40px;
+  /* 瀛椾綋 */
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 10px;
+  text-align: center;
+  padding-bottom: 15px;
+  /* 榧犳爣鏍峰紡 */
+  cursor: pointer;
+  /* 杈规銆佽儗鏅� */
+  border-radius: 10px;
+  background:linear-gradient(135deg,rgba(230, 230, 230, 1) 0%,rgba(246, 246, 246, 1) 100%);
+  box-shadow: -4px -4px 8px -5px rgba(246, 246, 246, 1),
+  4px 4px 8px -5px rgba(0, 0, 0, .5);
+  background-size: 200%;
+  display: block;
+}
+.btn:hover {
+ 
+
+  animation: btnAnimate 1s infinite;
+}
+.btn:active{
+	box-shadow: -4px -4px 8px -5px rgba(246, 246, 246, 1),
+	4px 4px 8px -5px rgba(0, 0, 0, .5) inset;
+}
+@keyframes btnAnimate {
+  50% {
+    background-position: 200%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #fbc2eb;
+}

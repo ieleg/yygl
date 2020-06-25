@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <link rel="stylesheet" href="/css/login.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" >
+    <form class="login-form" action='/login' method='POST'>
+      <div class="text">登录</div>
+      <div class="form-item">
+        <input type="username" placeholder="用户名" name='username'>
+        <input type="password" placeholder="密码" name='password'>
+      </div>
+      <input  class="btn" type='submit' value="登录"></input >
+      <div class="btn-back"></div>
+      <div class="other">
+        没有账号？<a href="#">去注册</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.querySelector('.btn').addEventListener('click',function(){
+
+    });
+
+  </script>
+</body>
+</html>

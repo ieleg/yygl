@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>权限列表</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="/static/css/font.css">
+		<link rel="stylesheet" href="/static/css/weadmin.css">
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 9]>
+	      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+	      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <style>
+      .layui-table-cell {
+        height: 50px;
+      }
+      th .layui-table-cell {
+        height: 20px;
+      }
+    </style>
+	</head>
+
+	<body>
+		<div class="weadmin-nav">
+			<span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">权限管理</a>
+        <a>
+          <cite>权限列表</cite></a>
+      </span>
+			<a class="layui-btn layui-btn-sm" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+				<i class="layui-icon" style="line-height:30px">ဂ</i></a>
+		</div>
+		<div class="weadmin-body">
+			<div class="layui-row">
+				<form class="layui-form layui-col-md12 we-search">
+					<div class="layui-inline">
+						<input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+					</div>
+					<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+				</form>
+			</div>
+			<div class="weadmin-block">
+				<button class="layui-btn" onclick="WeAdminShow('添加用户','/admin/users/userlist2/adduser')"><i class="layui-icon"></i>添加</button>
+				<span class="fr" style="line-height:40px">共有数据：88 条</span>
+			</div>
+			<table class="layui-table" id="demo" lay-filter="test">
+
+			</table>
+		</div>
+		<script src="/lib/layui/layui.js" charset="utf-8"></script>
+    	<script src="/static/js/eleDel.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				layui.use('table', function(){
+				  var table = layui.table;
+				  var $ = layui.$;
+				  //第一个实例
+				  table.render({
+				    elem: '#demo'
+            ,height: 320
+            ,limit:6
+            ,url: '/admin/users/authlist/api' //数据接口
+				    ,page: true //开启分页
+				    ,cols: [[ //表头 field应与数据库表头一致
+				      {field: 'id', title: 'ID',  sort: true, fixed: 'left',width:60}
+				      ,{field: 'authname', title: '权限名称', }
+				      ,{field: 'authurl', title: '权限路径', }
+
+				      ,{field: 'classify', title: '操作', toolbar: '#barDemo'}
+				    ]]
+          });
+          table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            console.log(data);
+            
+          
+            if(layEvent === 'detail'){ //查看
+              //do somehing
+            } else if(layEvent === 'del'){ //删除
+              layer.confirm('真的删除行么', function(index){
+                $.ajax({
+                  method:'post',
+                  url:'/admin/users/userlist1/delusersingle',
+                  data:{data},
+                }).then( (res) => {
+                  obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                  layer.close(index);
+                  //向服务端发送删除指令
+
+                });
+
+              });
+            } else if(layEvent === 'edit'){ //编辑
+              //do something
+              WeAdminShow('编辑用户','/admin/users/authlist/editauth?id='+data.id)
+              // $.ajax({
+              //     method:'post',
+              //     url:'/admin/users/userlist2/edituser?id='+data.id,
+              //     data:{data},
+              //   }).then( (res) => {
+
+
+              //   });
+              //同步更新缓存对应的值
+              obj.update({
+                username: '123'
+                ,title: 'xxx'
+              });
+            } else if(layEvent === 'LAYTABLE_TIPS'){
+              layer.alert('Hi，头部工具栏扩展的右侧图标。');
+            }
+          });
+				  
+				});
+      </script>
+      <!-- 下述是templet对应的模板，它可以存放在页面的任意位置。模板遵循于 laytpl 语法，可读取到返回的所有数据 -->
+
+      <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+      </script>
+	</body>
+
+</html>
