@@ -62,7 +62,7 @@ router.get('/', permission, function(req, res, next) {
     username:req.session.username,
   })
 });
-router.use(adminAuth);
+// router.use(adminAuth);
 
 // 后台的用户管理
 router.use('/users',userRouter)

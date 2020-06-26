@@ -65,8 +65,10 @@
             ,limit:6
             ,url: '/admin/users/userlist2/api' //数据接口
 				    ,page: true //开启分页
-				    ,cols: [[ //表头 field应与数据库表头一致
-				      {field: 'id', title: 'ID',  sort: true, fixed: 'left',width:60}
+            ,cols: [[ //表头 field应与数据库表头一致
+				      {field: 'checkbox', title: '<div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>', fixed: 'left',toolbar: '#checkbox'}
+            
+				      ,{field: 'id', title: 'ID',  sort: true,width:60}
 				      ,{field: 'username', title: '用户名', }
 				      ,{field: 'mobile', title: '手机', }
 				      ,{field: 'roleid', title: '角色', }
@@ -132,6 +134,10 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
       </script>
+      <!-- <script type="text/html" id="checkbox">
+        <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{d.id}}'><i class="layui-icon">&#xe605;</i></div>
+
+      </script> -->
 	</body>
 
 </html>
