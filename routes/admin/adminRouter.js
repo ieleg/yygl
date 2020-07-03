@@ -62,6 +62,10 @@ router.get('/', permission, function(req, res, next) {
     username:req.session.username,
   })
 });
+router.get('/index', function(req, res, next) {
+  
+  res.render('admin/control')
+});
 // router.use(adminAuth);
 
 // 后台的用户管理

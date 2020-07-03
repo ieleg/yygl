@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台管理-WeAdmin Frame型后台管理系统-WeAdmin 1.0</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="/static/css/font.css">
+		<link rel="stylesheet" href="/static/css/weadmin.css">
+		<link rel="stylesheet" href="/static/css/circle.css">
+		<script type="text/javascript" src="/lib/layui/layui.js" charset="utf-8"></script>
+    <style scoped>
+      .body{
+        display: flex;
+        flex-direction: column;
+      }
+      .top,.total{
+        flex: 1;
+      }
+      .top{
+        padding: 5px;
+        display: flex;
+      }
+      .info {
+        height: 100px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0 20px 0 20px;
+        flex: 1;
+      }
+      .info p{
+        padding: 5px;
+      }
+      .info-number{
+        font-size: 30px;
+      }
+      .info-number{
+        text-align: center;
+      }
+      .total{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 20px;
+      }
+     
+    </style>
+	</head>
+
+	<body>
+		<!-- 顶部开始 -->
+    <div class="top">
+      <div class="info layui-bg-blue" >
+        <div>
+          <p class="info-number">81</p>
+          <p class="info-title">患者</p>
+          
+        </div>
+        <i class="layui-icon layui-icon-username" style="font-size: 40px;"></i>
+      </div>
+      <div class="info layui-bg-green" >
+        <div>
+          <p class="info-number">81</p>
+
+          <p class="info-title">公告</p>
+        </div>
+        <i class="layui-icon layui-icon-username" style="font-size: 40px;"></i>
+      </div>
+      <div class="info layui-bg-orange" >
+        <div>
+          <p class="info-number">81</p>
+
+          <p class="info-title">投诉</p>
+        </div>
+        <i class="layui-icon layui-icon-username" style="font-size: 40px;"></i>
+      </div>
+      <div class="info layui-bg-red" >
+        <div>
+          <p class="info-number">81</p>
+
+          <p class="info-title">维修</p>
+        </div>
+        <i class="layui-icon layui-icon-username" style="font-size: 40px;"></i>
+      </div>
+    </div>
+    <div class="total">
+
+      <div class="box-circle">
+        <div>
+          床位统计
+        </div>
+        <div class="circle-progress">
+          <div class="annulus left-circle"></div>
+          <div class="annulus right-circle"></div>
+          <div class="text">
+            <p>剩余数/总数</p>
+            <p>458/682</p>
+          </div>
+        </div>
+        <div class="circle-box-bottom">
+          <div>
+            <p>458</p>
+            <p>闲置</p>
+          </div>
+          <div>
+            <p>123</p>
+            <p>总数</p>
+          </div>
+        </div>
+      </div>
+      <div class="box-circle">
+        <div>
+          车位统计
+        </div>
+        <div class="circle-progress">
+          <div class="annulus left-circle"></div>
+          <div class="annulus right-circle"></div>
+          <div class="text">
+            <p>剩余数/总数</p>
+            <p>158/282</p>
+          </div>
+        </div>
+        <div class="circle-box-bottom">
+          <div>
+            <p>458</p>
+            <p>闲置</p>
+          </div>
+          <div>
+            <p>123</p>
+            <p>总数</p>
+          </div>
+        </div>
+      </div>
+      <div class="box-circle">
+        <div>
+          缴费统计
+        </div>
+        <div class="circle-progress">
+          <div class="annulus left-circle"></div>
+          <div class="annulus right-circle"></div>
+          <div class="text">
+            <p>剩余数/总数</p>
+            <p>12/32</p>
+            
+          </div>
+        </div>
+        <div class="circle-box-bottom">
+          <div>
+            <p>458</p>
+            <p>未缴</p>
+          </div>
+          <div>
+            <p>123</p>
+            <p>已缴费</p>
+          </div>
+        </div>
+      </div>
+    </div>
+	</body>
+  <script>
+    layui.use('element',function(){
+
+    })
+  </script>
+
+</html>
