@@ -9,6 +9,7 @@ let Jiami = {
   jiami(str){
     let password = str;
     password = str + 'wl';
+    // 创建并返回一个哈希对象，一个使用所给算法的用于生成摘要的加密哈希。
     let sf = crytpo.createHash('md5');
     // 对字符串加密
     sf.update(password);
